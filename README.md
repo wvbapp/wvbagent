@@ -26,7 +26,14 @@ For detailed, step-by-step installation instructions for your specific computer,
 *   **macOS Users:** [README_MACOS.md](./README_MACOS.md)
 *   **Windows Users:** [README_WINDOWS.md](./README_WINDOWS.md)
 
-## 4. System Dependencies
+## 4. Hardware Recommendations
+
+To ensure smooth performance of the local AI classification engine, we recommend the following hardware or better:
+
+*   **macOS:** Apple Silicon M4, 16GB Memory, macOS 26.
+*   **Windows:** Intel Core i5, 16GB Memory, Windows 11.
+
+## 5. System Dependencies
 
 To provide AI classification, WVB Agent requires the following software:
 
@@ -34,7 +41,7 @@ To provide AI classification, WVB Agent requires the following software:
 2.  **Ollama:** A local server for running AI models.
 3.  **AI Model (Qwen 3.5 9B):** The specialized model used for content classification.
 
-## 5. Installing AI Components (Ollama & Qwen)
+## 6. Installing AI Components (Ollama & Qwen)
 
 The Agent requires **Ollama** to be installed and the **Qwen** model to be downloaded.
 
@@ -49,7 +56,7 @@ ollama pull qwen3.5:9b
 ```
 *Note: This model is approximately 5-6 GB. Ensure you have a stable internet connection.*
 
-## 6. End User License Agreement (EULA)
+## 7. End User License Agreement (EULA)
 
 By installing or using this software, you agree to be bound by the **End User License Agreement**. 
 Please read [EULA.txt](./EULA.txt) carefully before proceeding. 
@@ -59,7 +66,7 @@ Please read [EULA.txt](./EULA.txt) carefully before proceeding.
 *   Commercial use is strictly prohibited without a separate license.
 *   The software is provided "AS IS" without warranty.
 
-## 7. Quick Start Basics
+## 8. Quick Start Basics
 
 1.  **Install the Agent:** Follow the instructions in the macOS or Windows README.
 2.  **Install the "Web Visiting Breaker" Extension:** Load the provided plugin folder into Chrome or Edge (Developer Mode).
