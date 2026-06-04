@@ -1,6 +1,6 @@
 # WVB Agent: AI-Powered Parental Control & Web Security
 
-Welcome to **WVB Agent**, a modern, privacy-first web filtering and parental control system. Unlike traditional filters that rely on static, outdated lists, WVB Agent uses a local **Artificial Intelligence (AI)** engine to understand and classify websites in real-time.
+Welcome to Web Visiting Breaker Agent (**WVB Agent**), a modern, privacy-first web filtering and parental control system. Unlike traditional filters that rely on static, outdated lists, WVB Agent uses a local **Artificial Intelligence (AI)** engine to understand and classify websites in real-time.
 
 ## 1. What is the WVB Agent?
 
@@ -11,9 +11,9 @@ The WVB Agent is a "Smart Brain" that runs on your computer. Its primary purpose
 
 ## 2. Agent & Browser Extension: How They Work Together
 
-The system consists of two parts:
+The system consists of two parts that MUST be used together:
 1.  **The Agent (Backend):** A background service that performs AI analysis, manages the local database, and provides a management API.
-2.  **The Extension (Frontend):** A browser plugin for Chrome or Edge that acts as the "Enforcer." It checks every website you visit against the Agent's database and applies your chosen security rules instantly.
+2.  **The "Web Visiting Breaker" Extension (Frontend):** A browser plugin for Chrome or Edge that acts as the "Enforcer." It checks every website you visit against the Agent's database and applies your chosen security rules instantly.
 
 **Benefits of a Connected Agent:**
 *   **Instant AI Classification:** If you visit a new site, the extension asks the Agent to analyze it. The Agent "reads" the page and decides its category (e.g., News, Education, Adult) in seconds.
@@ -62,7 +62,7 @@ Please read [EULA.txt](./EULA.txt) carefully before proceeding.
 ## 7. Quick Start Basics
 
 1.  **Install the Agent:** Follow the instructions in the macOS or Windows README.
-2.  **Install the Extension:** Load the provided plugin folder into Chrome or Edge (Developer Mode).
+2.  **Install the "Web Visiting Breaker" Extension:** Load the provided plugin folder into Chrome or Edge (Developer Mode).
 3.  **Bootstrap:** On first launch, the Agent will generate your unique security keys in the `keys/` folder.
 4.  **Manage:** Use the **WVB Console** to view logs and adjust your filtering categories.
 
