@@ -57,11 +57,6 @@ chmod +x scripts/verify_macos.sh
 ./scripts/verify_macos.sh wvb-agent-macos.pkg package_public_key.pem
 ```
 
-### Verify Database File
-```bash
-./scripts/verify_macos.sh urldb-1k.db package_public_key.pem
-```
-
 Alternatively, developers can use the Python script:
 `python3 scripts/sign_build.py verify wvb-agent-macos.pkg --key package_public_key.pem`
 

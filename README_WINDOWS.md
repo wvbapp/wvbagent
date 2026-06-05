@@ -59,11 +59,6 @@ If a `.sig` file and public key are provided, you can verify the integrity of th
 .\winscripts\verify_windows.ps1 -PackageFile wvb-agent-setup.msi -PublicKeyFile package_public_key.pem
 ```
 
-### Verify Database File
-```powershell
-.\winscripts\verify_windows.ps1 -PackageFile urldb-1k.db -PublicKeyFile package_public_key.pem
-```
-
 Alternatively, developers can use the Python script:
 `python3 scripts/sign_build.py verify wvb-agent-setup.msi --key package_public_key.pem`
 
