@@ -4,12 +4,17 @@ This manual provides information on the installation, file structure, and mainte
 
 ## 1. Installation
 
-The WVB Agent is distributed as a standard macOS Package (`.pkg`).
+The WVB Agent is distributed as a self-signed macOS Package (`.pkg`).
 
 1.  **Run the Installer:** Double-click `wvb-agent-macos.pkg`.
-2.  **EULA:** You will be presented with the End User License Agreement. Review the terms and click **Agree** to continue.
-3.  **Permissions:** The installer requires administrative privileges to install into the `/Applications` folder.
-3.  **Completion:** Once finished, you will find **WVB Agent** and **WVB Console** in your **Applications** folder and **Launchpad**.
+2.  **Handle Security Warning:** Because the installer is self-signed, macOS may show a warning saying it "cannot be opened because it is from an unidentified developer."
+    *   Click **OK** to dismiss the dialog.
+    *   Go to **System Settings > Privacy & Security**.
+    *   Scroll down to the **Security** section and click the **Open Anyway** button next to the WVB Agent message.
+    *   Enter your password when prompted to allow the installation.
+3.  **EULA:** You will be presented with the End User License Agreement. Review the terms and click **Agree** to continue.
+4.  **Permissions:** The installer requires administrative privileges to install into the `/Applications` folder.
+5.  **Completion:** Once finished, you will find **WVB Agent** and **WVB Console** in your **Applications** folder and **Launchpad**.
 
 ---
 

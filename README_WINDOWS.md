@@ -4,12 +4,15 @@ This manual provides information on the installation, file structure, and mainte
 
 ## 1. Installation
 
-The WVB Agent is distributed as a standard Windows Installer (`.msi`).
+The WVB Agent is distributed as a self-signed Windows Installer (`.msi`).
 
 1.  **Run the Installer:** Double-click `wvb-agent-setup.msi`.
-2.  **EULA:** You will be presented with the End User License Agreement. Review the terms and click **Agree** to continue.
-3.  **Permissions:** The installer requires administrative privileges to install into the `Program Files` directory.
-3.  **Completion:** Once finished, you will find shortcuts for **WVBAgent** and **WVBConsole** on your Desktop and in the Start Menu.
+2.  **Handle SmartScreen:** Because the installer is self-signed, Windows SmartScreen may display a blue window saying "Windows protected your PC."
+    *   Click the **More info** link.
+    *   Click the **Run anyway** button that appears.
+3.  **EULA:** You will be presented with the End User License Agreement. Review the terms and click **Agree** to continue.
+4.  **Permissions:** The installer requires administrative privileges to install into the `Program Files` directory.
+5.  **Completion:** Once finished, you will find shortcuts for **WVBAgent** and **WVBConsole** on your Desktop and in the Start Menu.
 
 ---
 

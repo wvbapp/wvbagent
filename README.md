@@ -25,7 +25,8 @@ The **WVB Console** is a desktop application included with the Agent that serves
 
 ## 4. Getting Started: Platform Guides
 
-For detailed, step-by-step installation instructions for your specific computer, please read:
+**Note on Installation Security:** Because the WVB Agent installers (`.pkg` and `.msi`) are self-signed, your operating system may display a security warning (e.g., "Unidentified Developer" or "SmartScreen") during installation. Please refer to the platform guides below for instructions on how to allow the installation as an exception.
+
 *   **macOS Users:** [README_MACOS.md](./README_MACOS.md)
 *   **Windows Users:** [README_WINDOWS.md](./README_WINDOWS.md)
 
