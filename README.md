@@ -29,14 +29,24 @@ For detailed, step-by-step installation instructions for your specific computer,
 *   **macOS Users:** [README_MACOS.md](./README_MACOS.md)
 *   **Windows Users:** [README_WINDOWS.md](./README_WINDOWS.md)
 
-## 5. Hardware Recommendations
+## 5. First-Time Installation Note
+
+**Important:** Upon installation, the plugin is **enabled by default** and configured to **block unknown websites**. As a result, you may notice that all currently open browser pages are blocked immediately after installation.
+
+If you need internet access to finish your initial setup and policy configurations:
+1. Open the **Management Console**.
+2. Set the "Enable" status to **False** (Off).
+3. Configure your rules (Allow/Deny lists, Categories, etc.).
+4. Re-enable the plugin once your configuration is complete.
+
+## 6. Hardware Recommendations
 
 To ensure smooth performance of the local AI classification engine, we recommend the following hardware or better:
 
 *   **macOS:** Apple Silicon M4 (or newer), 16GB Memory (or higher), macOS 26 (or newer).
 *   **Windows:** Intel Core i5 (or newer), 16GB Memory (or higher), Windows 11 (or newer).
 
-## 6. System Dependencies
+## 7. System Dependencies
 
 To provide AI classification, WVB Agent requires the following software:
 
@@ -44,7 +54,7 @@ To provide AI classification, WVB Agent requires the following software:
 2.  **Ollama:** A local server for running AI models.
 3.  **AI Model (Qwen 3.5 9B):** The specialized model used for content classification.
 
-## 7. Installing AI Components (Ollama & Qwen)
+## 8. Installing AI Components (Ollama & Qwen)
 
 The Agent requires **Ollama** to be installed and the **Qwen** model to be downloaded.
 
@@ -59,7 +69,7 @@ ollama pull qwen3.5:9b
 ```
 *Note: This model is approximately 5-6 GB. Ensure you have a stable internet connection.*
 
-## 8. End User License Agreement (EULA)
+## 9. End User License Agreement (EULA)
 
 By installing or using this software, you agree to be bound by the **End User License Agreement**. 
 Please read [EULA.txt](./EULA.txt) carefully before proceeding. 
@@ -69,11 +79,11 @@ Please read [EULA.txt](./EULA.txt) carefully before proceeding.
 *   Commercial use is strictly prohibited without a separate license.
 *   The software is provided "AS IS" without warranty.
 
-## 9. Quick Start Basics
+## 10. Quick Start Basics
 ...
 4.  **Manage:** Use the **WVB Console** to view logs and adjust your filtering categories.
 
-## 10. Database Verification (Security)
+## 11. Database Verification (Security)
 
 A database file (`urldb-1k.db`) containing data for 1,000 pre-classified URLs and category definitions is provided. To ensure the integrity and authenticity of this database, you can verify its digital signature using the included tools and the **package_public_key.pem**.
 
