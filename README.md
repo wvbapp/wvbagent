@@ -4,9 +4,9 @@ Welcome to Web Visiting Breaker Agent (**WVB Agent**), a modern, privacy-first w
 
 ## 1. What is the WVB Agent?
 
-The WVB Agent is a "Smart Brain" that runs on your computer. Its primary purpose is to:
+The WVB Agent is a "Smart Brain" and back-end service that runs on your computer. Its primary purpose is to:
 *   **Analyze Content:** Automatically classify unknown or new websites using local AI models.
-*   **Manage Policies:** Centralize security settings, block lists, and schedules.
+*   **Power Policy Management:** Provide the secure APIs and database services that enable the **Browser Extension** and **WVB Console** to manage and enforce security settings, block lists, and schedules.
 *   **Protect Privacy:** All analysis and logging happen locally on your machine. Your data is not sold or sent to a cloud-based classification service.
 
 ## 2. Agent & Browser Extension: How They Work Together
@@ -19,12 +19,15 @@ The system consists of two parts that MUST be used together:
 
 The **WVB Console** is a desktop application included with the Agent that serves as your centralized management station. It allows you to:
 *   **Monitor Activity:** View enriched browsing history from all your connected browser instances in one place.
-*   **Deploy Policies:** Create and "push" security configurations (rules, block lists, and schedules) to your devices instantly.
-*   **AI Diagnostics:** Use the built-in Rule Tester to see exactly how the AI engine classifies specific websites.
+*   **Insights:** View graphical reports of browsing habits, including top visited categories and websites.
+*   **Deploy Policies:** Create and "push" security configurations (by saving a modified configuration) to your devices instantly.
+*   **Rule Diagnostics:** Use the built-in Rule Tester to see how the rules are applied to a specific URL.
+*   **Update URL Category:** Update a specific URL's category and age group information in the URL database.
 *   **Secure Orchestration:** Manage the cryptographic keys that ensure all communication between your devices is authentic and secure.
 
 ## 4. Getting Started: Platform Guides
 
+The software package for macOS (.pkg) and Windows (.msi) can be found in the Releases.
 **Note on Installation Security:** Because the WVB Agent installers (`.pkg` and `.msi`) are self-signed, your operating system may display a security warning (e.g., "Unidentified Developer" or "SmartScreen") during installation. Please refer to the platform guides below for instructions on how to allow the installation as an exception.
 
 *   **macOS Users:** [README_MACOS.md](./README_MACOS.md)
@@ -44,14 +47,14 @@ If you need internet access to finish your initial setup and policy configuratio
 
 To ensure smooth performance of the local AI classification engine, we recommend the following hardware or better:
 
-*   **macOS:** Apple Silicon M4 (or newer), 16GB Memory (or higher), macOS 26 (or newer).
+*   **macOS:** Apple Silicon M4 (or newer), 16GB Memory (or higher), macOS 16 (or newer).
 *   **Windows:** Intel Core i5 (or newer), 16GB Memory (or higher), Windows 11 (or newer).
 
 ## 7. System Dependencies
 
 To provide AI classification, WVB Agent requires the following software:
 
-1.  **Google Chrome:** Required for the web analysis engine.
+1.  **Google Chrome:** Required by the tools of the web analysis engine.
 2.  **Ollama:** A local server for running AI models.
 3.  **AI Model (Qwen 3.5 9B):** The specialized model used for content classification.
 
