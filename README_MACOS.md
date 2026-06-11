@@ -14,11 +14,32 @@ The WVB Agent is distributed as a self-signed macOS Package (`.pkg`).
     *   Enter your password when prompted to allow the installation.
 3.  **EULA:** You will be presented with the End User License Agreement. Review the terms and click **Agree** to continue.
 4.  **Permissions:** The installer requires administrative privileges to install into the `/Applications` folder.
-5.  **Completion:** Once finished, you will find **WVB Agent** and **WVB Console** in your **Applications** folder and **Launchpad**.
+5. **Completion:** Once finished, you will find **WVB Agent** and **WVB Console** in your **Applications** folder and **Launchpad**.
 
 ---
 
-## 2. File Structure
+## 2. Browser Extension Setup
+
+The WVB Agent works in conjunction with a browser extension.
+
+### Chrome & Microsoft Edge
+1.  Visit the **[Web Visiting Breaker on Chrome Web Store](https://chromewebstore.google.com/detail/njcdfejenjdfenjhakieaagmeobbdime?utm_source=item-share-cb)**.
+2.  Click **Add to Chrome** (or **Add to Edge**).
+3.  (Optional but Recommended): In the extension's **Details**, toggle **Allow in Incognito**.
+
+### Safari
+1.  Open **Safari**.
+2.  Go to **Safari > Settings...** (or **Preferences...**) > **Advanced**.
+3.  Check **Show features for web developers** (or **Show Develop menu in menu bar** in older versions).
+4.  In the menu bar, go to **Develop** and ensure **Allow Unsigned Extensions** is checked.
+5.  Load the extension from the `safari/` folder. 
+    *   **Note:** The Safari extension is built using **Manifest V3**. It includes advanced logic to handle Safari's predictive navigation (address bar suggestions) to ensure that only visible pages are blocked.
+    *   **Reliability:** The extension uses a combination of `onBeforeNavigate`, `onCommitted`, and `tabs.onUpdated` to ensure robust blocking across all navigation types, including Single Page Applications (SPAs).
+
+---
+
+## 3. File Structure
+
 
 The application is fully self-contained within the native app bundles.
 
@@ -37,7 +58,7 @@ Located at: `~/Library/Application Support/WVBAgent/`
 
 ---
 
-## 3. Launching the Application
+## 4. Launching the Application
 
 ### From Launchpad or Applications
 Simply click the **WVB Agent** or **WVB Console** icons. The applications launch instantly as native macOS apps with a single, stable dock icon.
@@ -50,7 +71,7 @@ For advanced users, you can launch the Agent directly with custom flags:
 
 ---
 
-## 4. Verification (Optional)
+## 5. Verification (Optional)
 If a `.sig` file and public key are provided, you can verify the integrity of the installer or database files using the built-in macOS tools (no Python required):
 
 ### Verify Installer Package
@@ -65,7 +86,7 @@ chmod +x scripts/verify_macos.sh
 Alternatively, developers can use the Python script:
 `python3 scripts/sign_build.py verify wvb-agent-macos.pkg --key package_public_key.pem`
 
-## 5. Security Keys
+## 6. Security Keys
 
 Your security keys are generated automatically on the first launch.
 *   **Location:** `~/Library/Application Support/WVBAgent/keys/`
@@ -73,7 +94,7 @@ Your security keys are generated automatically on the first launch.
 
 ---
 
-## 6. Log Encryption
+## 7. Log Encryption
 
 The WVB Agent employs a multi-layered encryption system to protect your browsing history:
 
@@ -84,7 +105,7 @@ The WVB Agent employs a multi-layered encryption system to protect your browsing
 
 ---
 
-## 7. Uninstallation
+## 8. Uninstallation
 
 To completely remove the WVB Agent and all associated data, run the following commands in Terminal:
 
@@ -106,7 +127,7 @@ sudo pkgutil --forget com.webvisitingbreaker.agent
 
 ---
 
-## 8. Troubleshooting
+## 9. Troubleshooting
 
 *   **App fails to start:** Ensure you have the latest Chrome browser installed, as it is required for the web analysis tools.
 *   **Logs:** For deep diagnostics, check `~/Library/Application Support/WVBAgent/agent.log`.

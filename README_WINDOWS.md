@@ -16,7 +16,18 @@ The WVB Agent is distributed as a self-signed Windows Installer (`.msi`).
 
 ---
 
-## 2. File Structure
+## 2. Browser Extension Setup
+
+The WVB Agent works in conjunction with a browser extension.
+
+### Chrome & Microsoft Edge
+1.  Visit the **[Web Visiting Breaker on Chrome Web Store](https://chromewebstore.google.com/detail/njcdfejenjdfenjhakieaagmeobbdime?utm_source=item-share-cb)**.
+2.  Click **Add to Chrome** (or **Add to Edge**).
+3.  (Optional but Recommended): In the extension's **Details**, toggle **Allow in Incognito**.
+
+---
+
+## 3. File Structure
 
 The application separates static system files from dynamic user-specific data.
 
@@ -40,7 +51,7 @@ Located at: `%TEMP%\WVBAgent\`
 
 ---
 
-## 3. Launching the Application
+## 4. Launching the Application
 
 ### From Start Menu or Desktop
 Click the **WVBAgent** or **WVBConsole** shortcuts. Both applications launch as native Windows programs with their own graphical interfaces.
@@ -54,7 +65,7 @@ launch_agent.bat
 
 ---
 
-## 4. Verification (Optional)
+## 5. Verification (Optional)
 If a `.sig` file and public key are provided, you can verify the integrity of the installer or database files using native PowerShell (no Python required):
 
 ### Verify Installer Package
@@ -65,7 +76,7 @@ If a `.sig` file and public key are provided, you can verify the integrity of th
 Alternatively, developers can use the Python script:
 `python3 scripts/sign_build.py verify wvb-agent-setup.msi --key package_public_key.pem`
 
-## 5. Security Keys
+## 6. Security Keys
 
 Your security keys are generated automatically on the first launch.
 *   **Location:** `%LOCALAPPDATA%\WVBAgent\keys\`
@@ -73,7 +84,7 @@ Your security keys are generated automatically on the first launch.
 
 ---
 
-## 6. Log Encryption
+## 7. Log Encryption
 
 The WVB Agent employs a multi-layered encryption system to protect your browsing history:
 
@@ -84,7 +95,7 @@ The WVB Agent employs a multi-layered encryption system to protect your browsing
 
 ---
 
-## 7. Uninstallation
+## 8. Uninstallation
 
 To remove the WVB Agent from your system:
 
@@ -100,7 +111,7 @@ To remove the WVB Agent from your system:
 
 ---
 
-## 8. Troubleshooting
+## 9. Troubleshooting
 
 *   **App fails to start:** Ensure you have the latest Chrome browser installed, as it is required for the web analysis tools.
 *   **Blank Log Window:** Check that port `8051` is not being blocked by a local firewall, as the Agent uses this port for its internal API.

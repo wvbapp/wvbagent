@@ -13,7 +13,8 @@ The WVB Agent is a "Smart Brain" and back-end service that runs on your computer
 
 The system consists of two parts that MUST be used together:
 1.  **The Agent (Backend):** A background service that performs AI analysis, manages the local database, and provides a management API.
-2.  **The "Web Visiting Breaker" Extension (Frontend):** A browser plugin for Chrome or Edge that acts as the "Enforcer." It checks every website you visit against the Agent's database and applies your chosen security rules instantly.
+2. **The "Web Visiting Breaker" Extension (Frontend):** A browser plugin for Chrome, Edge, or Safari that acts as the "Enforcer." It checks every website you visit against the Agent's database and applies your chosen security rules instantly.
+
 
 ## 3. WVB Console: Your Command Center
 
@@ -25,7 +26,18 @@ The **WVB Console** is a desktop application included with the Agent that serves
 *   **Update URL Category:** Update a specific URL's category and age group information in the URL database.
 *   **Secure Orchestration:** Manage the cryptographic keys that ensure all communication between your devices is authentic and secure.
 
-## 4. Getting Started: Platform Guides
+## 4. Browser Extension Installation
+
+The extension is the "Enforcer" that must be installed in your browser. 
+
+### Chrome & Microsoft Edge
+The official extension is available on the Chrome Web Store:
+**[Download for Chrome & Edge](https://chromewebstore.google.com/detail/njcdfejenjdfenjhakieaagmeobbdime?utm_source=item-share-cb)**
+
+### Safari
+Safari users can load the extension from the `safari/` folder in this repository. Please refer to the [macOS Platform Guide](./README_MACOS.md) for detailed instructions on enabling unsigned extensions in Safari.
+
+## 5. Getting Started: Platform Guides
 
 The software package for macOS (.pkg) and Windows (.msi) can be found in the Releases.
 **Note on Installation Security:** Because the WVB Agent installers (`.pkg` and `.msi`) are self-signed, your operating system may display a security warning (e.g., "Unidentified Developer" or "SmartScreen") during installation. Please refer to the platform guides below for instructions on how to allow the installation as an exception.
