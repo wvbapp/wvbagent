@@ -13,7 +13,7 @@ The WVB Agent is a "Smart Brain" and back-end service that runs on your computer
 
 The system consists of two parts that MUST be used together:
 1.  **The Agent (Backend):** A background service that performs AI analysis, manages the local database, and provides a management API.
-2. **The "Web Visiting Breaker" Extension (Frontend):** A browser plugin for Chrome, Edge, or Safari that acts as the "Enforcer." It checks every website you visit against the Agent's database and applies your chosen security rules instantly.
+2. **The "Web Visiting Breaker: WiseWeb" Extension (Frontend):** A browser plugin for Chrome, Edge, or Safari that acts as the "Enforcer." It checks every website you visit against the Agent's database and applies your chosen security rules instantly.
 
 
 ## 3. WVB Console: Your Management Station
