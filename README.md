@@ -30,7 +30,15 @@ The Console allows you to:
 *   **Database Management:** Manually update URL categories and age groups.
 *   **Secure Privacy:** Manage the cryptographic keys required for client-side log decryption, ensuring only you can read the browsing data.
 
-## 4. Web Management Console & Mobile Support
+## 4. Understanding Scheduling Modes: Focus vs. Browse
+
+The WVB browser extension offers two distinct scheduling modes to manage your browsing:
+
+*   **Focus Mode:** A restrictive "Allow-list" approach. During the scheduled time window, <b>only</b> the URLs and categories you explicitly define are accessible. Everything else is blocked. Temporary rules in this mode act as "disablers" to temporarily turn off the focus restriction.
+*   **Browse Mode:** A schedule-based "Allow/Block" approach. Rules define specific time windows during which specific URLs or categories are allowed. Outside these windows, default policies apply. Temporary rules in this mode act as "blockers" to deny access during specified times.
+
+---
+## 5. Web Management Console & Mobile Support
 
 The Agent hosts a built-in web server for management. You can access it by opening the Agent's URL (e.g., `http://localhost:8000/wvb/console`) in your browser.
 
