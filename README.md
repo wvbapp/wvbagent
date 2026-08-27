@@ -82,33 +82,48 @@ If you need internet access to finish your initial setup and policy configuratio
 
 ## 7. Hardware Recommendations
 
-To ensure smooth performance of the local AI classification engine, we recommend the following hardware or better:
+To ensure smooth performance of the AI classification engine, we recommend the following:
 
-*   **macOS:** Apple Silicon M4 (or newer), 16GB Memory (or higher), macOS 16 (or newer).
-*   **Windows:** Intel Core i5 (or newer), 16GB Memory (or higher), Windows 11 (or newer).
+*   **If using Local AI (Ollama):**
+    *   **macOS:** Apple Silicon M4 (or newer), 16GB Memory (or higher).
+    *   **Windows:** Intel Core i5 (or newer), 16GB Memory (or higher).
+*   **If using Cloud AI (Gemini, OpenAI, Anthropic):**
+    *   Minimal hardware requirements (8GB Memory is sufficient for the Agent service itself).
 
 ## 8. System Dependencies
 
-To provide AI classification, WVB Agent requires the following software:
+To provide AI classification, WVB Agent supports several AI model providers.
 
 1.  **Google Chrome:** Required by the tools of the web analysis engine.
-2.  **Ollama:** A local server for running AI models.
-3.  **AI Model (Qwen 3.5 9B):** The specialized model used for content classification.
+2.  **AI Models (Optional/Configurable):**
+    *   **Local (Ollama):** Recommended for maximum privacy. Requires [Ollama](https://ollama.com/) to be installed and sufficient hardware to run models locally.
+    *   **Cloud (Gemini, OpenAI, Anthropic):** Supported for users who prefer cloud-hosted AI APIs. Does not require Ollama or high-end local hardware.
 
-## 9. Installing AI Components (Ollama & Qwen)
 
-The Agent requires **Ollama** to be installed and the **Qwen** model to be downloaded.
+## 9. Configuring the AI Engine
 
-### Step 1: Install Ollama
-*   **Download:** Visit [ollama.com](https://ollama.com/) and download the installer for your OS.
-*   **Install:** Run the installer and ensure Ollama is running (you should see the icon in your system tray/menu bar).
+The WVB Agent can be configured via the Management Console to use different AI model providers.
 
-### Step 2: Download the AI Model
-Open your Terminal (macOS) or Command Prompt (Windows) and run the following command:
-```bash
-ollama pull qwen3.5:9b
-```
-*Note: This model is approximately 5-6 GB. Ensure you have a stable internet connection.*
+**Default Configuration:**
+*   **Provider:** Ollama
+*   **Model:** `qwen3.5:9b`
+
+### Option A: Local AI (Ollama - Recommended for Privacy)
+1.  **Download Ollama:** Visit [ollama.com](https://ollama.com/) and download the installer for your OS.
+2.  **Pull the Model:** Open your terminal and run:
+    ```bash
+    ollama pull qwen3.5:9b
+    ```
+3.  **Console Config:** Set Provider to **Ollama** and Model to **qwen3.5:9b** in the console.
+
+### Option B: Cloud AI (Gemini, OpenAI, Anthropic)
+1.  **Obtain API Key:** Get an API key from your chosen provider (Google, OpenAI, or Anthropic).
+2.  **Console Config:**
+    *   Set Provider to your chosen cloud AI.
+    *   Set Model to the desired model (e.g., `gemini-3.1-flash-lite` [default for Gemini], `gpt-4o-mini`, etc.).
+    *   Enter your API Key in the "API Key" field in the console.
+    *   *Note:* The API Key is securely encrypted and stored locally in your configuration file. No API Key is needed for local Ollama usage.
+
 
 ## 10. End User License Agreement (EULA)
 
@@ -122,8 +137,11 @@ Please read [EULA.txt](./EULA.txt) carefully before proceeding.
 
 ## 11. Quick Start Basics
 ...
-4.  **Manage:** Use the **WVB Console** to view logs and adjust your filtering categories.
-
+4.  **Manage:** Use the **WVB Console** to view logs, adjust your filtering categories, and set your **Default Action**:
+    *   **Allow**: All websites are permitted unless specifically blocked.
+    *   **Block**: All websites are denied unless specifically allowed.
+    *   **Allow & Follow**: Unknown websites are permitted, and they will be automatically sent to the Approval Server for classification. Once classified, the site will be governed by your category rules.
+...
 ## 12. Database Verification (Security)
 
 A database file (`urldb-1k.db`) containing data for 1,000 pre-classified URLs and category definitions is provided. To ensure the integrity and authenticity of this database, you can verify its digital signature using the included tools and the **package_public_key.pem**.
