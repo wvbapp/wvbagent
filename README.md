@@ -22,12 +22,23 @@ The **WVB Console** is the centralized management hub for the system. It is avai
 *   **Desktop Console:** A native application for macOS and Windows.
 *   **Web Management Console:** A modern, browser-based interface hosted by the Agent, accessible from any device on your local network (including mobile phones).
 
+### Security & Infrastructure (August 2026 Updates)
+*   **HTTPS Enforcement**: Bundled Caddy reverse proxy forces HTTPS for all remote connections.
+*   **Health Monitoring**: The SSL configuration page now includes a real-time **Proxy Status** indicator (green for running, grey for stopped).
+*   **Secure Authentication**:
+    *   **Credentials**: Default `wvbadmin` / `password: wvbadmin123`.
+    *   **Sessions**: Protected via `HttpOnly`, `SameSite=Strict` cookies.
+*   **IP-Based Access Control**: HTTP access restricted to 127.0.0.1; any remote access attempt is forced through HTTPS.
+
 The Console allows you to:
 *   **Monitor Activity:** View enriched browsing history from all your connected browser instances in one place.
 *   **Insights:** View graphical reports of browsing habits, including top visited categories and websites.
 *   **Remote Management:** Configure and "push" security policies to your browser extensions remotely.
+*   **Plugin Management**: View active extension instances (filtered by last 30 days) with both **Plugin ID and Alias** for easier identification.
 *   **Rule Diagnostic Tester:** Test URLs against your current or "candidate" (unsaved) configurations to see exactly how they will be handled.
 *   **Database Management:** Manually update URL categories and age groups.
+*   **SSL Configuration:** Manage the Caddy-powered HTTPS settings.
+*   **Password Management:** Update console credentials directly.
 *   **Secure Privacy:** Manage the cryptographic keys required for client-side log decryption, ensuring only you can read the browsing data.
 
 ## 4. Understanding Scheduling Modes: Focus vs. Browse
