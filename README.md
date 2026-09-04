@@ -1,171 +1,360 @@
 # WVB Agent: AI-Powered Parental Control & Web Security
 
-Welcome to Web Visiting Breaker Agent (**WVB Agent**), a modern, privacy-first web filtering and parental control system. Unlike traditional filters that rely on static, outdated lists, WVB Agent uses a local **Artificial Intelligence (AI)** engine to understand and classify websites in real-time.
+Welcome to Web Visiting Breaker Agent (WVB Agent), a privacy-first web filtering system for parental control, productivity, and web security.
 
-## 1. What is the WVB Agent?
+WVB Agent provides **AI-powered website classification, management services, and multi-client connectivity** for Web Visiting Breaker: WiseWeb, the browser extension that enforces web access policies on users' devices. It supports configurable AI providers, including local AI models, so users can choose where website classification takes place.
 
-The WVB Agent is a "Smart Brain" and back-end service that runs on your computer. Its primary purpose is to:
-*   **Analyze Content:** Automatically classify unknown or new websites using local AI models.
-*   **Power Policy Management:** Provide the secure APIs and database services that enable the **Browser Extension** and **WVB Console** to manage and enforce security settings, block lists, and schedules.
-*   **Protect Privacy:** All analysis and logging happen locally on your machine. Your data is not sold or sent to a cloud-based classification service.
-
-## 2. Agent & Browser Extension: How They Work Together
-
-The system consists of two parts that can be either used independently or used together:
-1.  **The Web Visiting Breaker (WVB) Agent (Backend):** A background service that performs AI analysis, manages the local database, and provides the management APIs.
-2. **The "Web Visiting Breaker: WiseWeb" Extension (Frontend):** A browser plugin for Chrome, Edge, or Safari that acts as the "Enforcer." It checks every website you visit against the local database and applies your chosen security rules instantly.
-
-
-## 3. WVB Console: Your Management Station
-
-The **WVB Console** is the centralized management hub for the system. It is available in two forms:
-*   **Desktop Console:** A native application for macOS and Windows.
-*   **Web Management Console:** A modern, browser-based interface hosted by the Agent, accessible from any device on your local network (including mobile phones).
-
-### Security & Infrastructure (August 2026 Updates)
-*   **HTTPS Enforcement**: Bundled Caddy reverse proxy forces HTTPS for all remote connections.
-*   **Health Monitoring**: The SSL configuration page now includes a real-time **Proxy Status** indicator (green for running, grey for stopped).
-*   **Secure Authentication**:
-    *   **Credentials**: Default `wvbadmin` / `password: wvbadmin123`.
-    *   **Sessions**: Protected via `HttpOnly`, `SameSite=Strict` cookies.
-*   **IP-Based Access Control**: HTTP access restricted to 127.0.0.1 or localhost; any remote access attempt is forced through HTTPS.
-
-The Console allows you to:
-*   **Monitor Activity:** View enriched browsing history from all your connected browser instances in one place.
-*   **Insights:** View graphical reports of browsing habits, including top visited categories and websites.
-*   **Remote Management:** Configure and "push" security policies to your browser extensions remotely.
-*   **Plugin Management**: View active extension instances (filtered by last 30 days) with both **Plugin ID and Alias** for easier identification.
-*   **Rule Diagnostic Tester:** Test URLs against your current or "candidate" (unsaved) configurations to see exactly how they will be handled.
-*   **Database Management:** Manually update URL categories and age groups.
-*   **SSL Configuration:** Manage the Caddy-powered HTTPS settings.
-*   **Password Management:** Update console credentials directly.
-*   **Secure Privacy:** Manage the cryptographic keys required for client-side log decryption, ensuring only you can read the browsing data.
-
-## 4. Understanding Scheduling Modes: Focus vs. Browse
-
-The WVB browser extension offers two distinct scheduling modes to manage your browsing:
-
-*   **Focus Mode:** A restrictive "Allow-list" approach. During the scheduled time window, <b>only</b> the URLs and categories you explicitly define are accessible. Everything else is blocked. Temporary rules in this mode act as "disablers" to temporarily turn off the focus restriction.
-*   **Browse Mode:** A schedule-based "Allow/Block" approach. Rules define specific time windows during which specific URLs or categories are allowed. Outside these windows, default policies apply. Temporary rules in this mode act as "blockers" to deny access during specified times.
+The system is designed to operate locally and can be used as a standalone web-filtering solution or together with WVB Agent for AI-powered classification and centralized management.
 
 ---
-## 5. Web Management Console & Mobile Support
 
-The Agent hosts a built-in web server for management. You can access it by opening the Agent's URL (e.g., `http://localhost:8051/wvb/console` or https://<service ip>:8443/wvb/console when SSL is enabled) in your browser.
+## 1. What is WVB Agent?
 
-### Accessing from Mobile (iPhone/Android)
-To manage your system from a mobile phone, visit the IP address of your computer on your local network (e.g., `https://192.168.1.10:8443/wvb/console`).
+WVB Agent is the **intelligence and management backend** for the Web Visiting Breaker system. It runs as a background service on your computer and provides:
 
-**Important Security Note for Mobile Decryption:**
-Modern mobile browsers require a **Secure Context** to enable the Web Crypto API used for local log decryption. 
-*   **Decryption will work** if accessed via `localhost` (on the host computer).
-*   **Decryption requires HTTPS** if accessed via an IP address or domain on mobile. 
-*   If accessed over plain HTTP on mobile, you can still manage configurations and run rule tests, but log decryption will be disabled by the browser for security.
+* **AI-Powered Website Classification:** Analyze and classify new and unknown websites using configurable AI models, including local models.
+* **Management Services:** Provide APIs and services for managing connected WiseWeb browser extensions and their configurations.
+* **Multi-Client Management:** Manage multiple WiseWeb extension instances, potentially across different devices, from a centralized management console.
+* **Local Data & Privacy:** Store and process management data and browsing information locally. WVB Agent does not send browsing history to the developer or use a third-party cloud service for classification unless you explicitly configure a cloud AI provider.
 
-## 5. Browser Extension Installation
+WVB Agent provides the intelligence and management infrastructure, while **WiseWeb remains responsible for browser-side policy enforcement and the final access decision**.
 
-The extension is the "Enforcer" that must be installed in your browser. 
+---
+
+## 2. WVB Agent & WiseWeb: How They Work Together
+
+The system consists of two parts that can be either used independently or used together:
+
+1. **WVB Agent (Backend):** A background service that provides AI classification, management APIs, database services, and connectivity for multiple WiseWeb clients.
+
+2. **Web Visiting Breaker: WiseWeb (Browser Extension):** A browser extension for Chrome and Edge, with Safari support under development, which acts as the **Enforcer**. WiseWeb contains the policy engine and makes the final decision about whether a website should be allowed or blocked.
+
+### Independent Operation
+
+WiseWeb can operate independently without WVB Agent. It can enforce policies using its local website/category database and locally configured rules.
+
+### Using WVB Agent
+
+When connected to WVB Agent, WiseWeb can use additional services such as:
+
+* AI-powered classification of new and unknown websites.
+* Centralized policy and configuration management.
+* Remote policy updates.
+* Activity and browsing insights.
+* Management of multiple connected browser instances.
+
+The AI classification service provides information to WiseWeb; **the WiseWeb policy engine remains responsible for the final access decision.**
+
+---
+
+## 3. Connecting WiseWeb to WVB Agent
+
+To connect a WiseWeb extension to a WVB Agent, the extension must first obtain and install a valid **license**.
+
+After the license is installed, the WVB Agent address can be configured in the WiseWeb management interface as the **Approval Server**.
+
+The Approval Server is the WVB Agent endpoint used by WiseWeb to communicate with the Agent for services such as AI-powered website classification and management.
+
+WiseWeb does not require an Approval Server to operate independently.
+
+### Connection Overview
+
+```text
+                  WVB Agent
+        ┌──────────────────────────┐
+        │ AI Classification        │
+        │ Management Services      │
+        │ Multi-Client Management  │
+        │ Management APIs          │
+        │ Local Data & Services    │
+        └────────────┬─────────────┘
+                     │
+                Approval Server
+                     │
+          ┌──────────┼──────────┐
+          ↓          ↓          ↓
+       WiseWeb    WiseWeb    WiseWeb
+       Client 1   Client 2   Client 3
+          │          │          │
+          └──── Policy Engine ──┘
+                     │
+               Final Decision
+               Allow / Block
+```
+
+---
+
+## 4. WVB Console: Your Management Station
+
+The **WVB Console** is the centralized management interface for WVB Agent.
+
+It is available in two forms:
+
+* **Desktop Console:** A native application for macOS and Windows.
+* **Web Management Console:** A browser-based interface hosted by the Agent and accessible from devices on your local network, including mobile phones.
+
+The Console allows you to:
+
+* **Monitor Activity:** View enriched browsing history from connected browser instances.
+* **Insights:** View graphical reports of browsing habits, including frequently visited categories and websites.
+* **Remote Management:** Configure and push policies to connected WiseWeb extensions.
+* **Plugin Management:** View active extension instances, including Plugin ID and Alias.
+* **Rule Diagnostic Tester:** Test URLs against current or candidate configurations to see how they will be handled.
+* **Database Management:** Manage URL categories and age groups.
+* **SSL Configuration:** Manage Caddy-powered HTTPS settings.
+* **Password Management:** Update administrator credentials.
+* **Secure Privacy:** Manage cryptographic keys used for client-side log decryption.
+
+### Security & Infrastructure
+
+* **HTTPS Enforcement:** Bundled Caddy reverse proxy can provide HTTPS for remote connections.
+* **Health Monitoring:** The SSL configuration page provides a real-time proxy status indicator.
+* **Secure Authentication:** Console sessions are protected using secure cookie attributes such as `HttpOnly` and `SameSite=Strict`.
+* **IP-Based Access Control:** HTTP access is restricted to local addresses, while remote access can be protected through HTTPS.
+
+### Administrator Credentials
+
+The initial administrator credentials are:
+
+* **Username:** `wvbadmin`
+* **Password:** `wvbadmin123`
+
+For security, change the administrator password after the initial login.
+
+The administrator password is primarily intended to protect policy and management settings from unauthorized changes by other users of the device.
+
+---
+
+## 5. Understanding Scheduling Modes: Focus vs. Browse
+
+The WiseWeb browser extension provides two scheduling modes for managing web access:
+
+* **Focus Mode:** A restrictive allow-list approach. During the scheduled time window, only the URLs and categories explicitly defined by the policy are accessible. Everything else is blocked.
+
+* **Browse Mode:** A schedule-based allow/block approach. Rules define specific time windows during which URLs or categories are allowed or blocked. Outside these windows, the default policies apply.
+
+Temporary rules can be used to modify the behavior of the active mode for specific situations.
+
+---
+
+## 6. Web Management Console & Mobile Support
+
+WVB Agent hosts a built-in web server for management.
+
+The Console can be accessed from the Agent's local URL, for example:
+
+`http://localhost:8051/wvb/console`
+
+When SSL is enabled, remote access can use:
+
+`https://<service-ip>:8443/wvb/console`
+
+### Accessing from Mobile
+
+To manage the system from an iPhone or Android device, access the WVB Console through the computer's local network address.
+
+For example:
+
+`https://192.168.1.10:8443/wvb/console`
+
+Modern mobile browsers require a **Secure Context** for the Web Crypto API used by local log decryption.
+
+* Decryption works through `localhost` on the host computer.
+* Decryption requires HTTPS when accessed through an IP address or domain.
+* Over plain HTTP on mobile, configuration management and rule testing remain available, but browser-based log decryption is disabled.
+
+---
+
+## 7. Browser Extension Installation
+
+The **WiseWeb browser extension** is the browser-side Enforcer.
 
 ### Chrome & Microsoft Edge
-The official extension is available on the Chrome Web Store:
-**[Download for Chrome & Edge](https://chromewebstore.google.com/detail/njcdfejenjdfenjhakieaagmeobbdime?utm_source=item-share-cb)**
 
-### Safari
-Safari users can load the extension from the `safari/` folder in this repository. Please refer to the [macOS Platform Guide](./README_MACOS.md) for detailed instructions on enabling unsigned extensions in Safari.
+The official extension is available through the Chrome Web Store:
 
-## 5. Getting Started: Platform Guides
+**Web Visiting Breaker: WiseWeb**
 
-The software package for macOS (.pkg) and Windows (.msi) can be found in the Releases.
-**Note on Installation Security:** Because the WVB Agent installers (`.pkg` and `.msi`) are self-signed, your operating system may display a security warning (e.g., "Unidentified Developer" or "SmartScreen") during installation. Please refer to the platform guides below for instructions on how to allow the installation as an exception.
+[Chrome Web Store](https://chromewebstore.google.com/detail/njcdfejenjdfenjhakieaagmeobbdime)
 
-*   **macOS Users:** [README_MACOS.md](./README_MACOS.md)
-*   **Windows Users:** [README_WINDOWS.md](./README_WINDOWS.md)
+---
 
-## 6. First-Time Installation Note
+## 8. Getting Started: Platform Guides
 
-Upon installation, the plugin is **enabled by default** and the default action is configured to **Allow**. As a result, websites are allowed by default after initial installation.
+WVB Agent installers for macOS (`.pkg`) and Windows (`.msi`) are available in Releases.
 
-If you need internet access to finish your initial setup and policy configurations:
+### Installation Security
+
+Because the WVB Agent installers are currently self-signed, your operating system may display a security warning during installation, such as "Unidentified Developer" or a Windows SmartScreen warning.
+
+Please refer to the platform guides for instructions:
+
+* **macOS:** [README_MACOS.md](./README_MACOS.md)
+* **Windows:** [README_WINDOWS.md](./README_WINDOWS.md)
+
+---
+
+## 9. First-Time Installation
+
+After installation, the WiseWeb extension is **enabled by default**, and its default action is **Allow**.
+
+As a result, installing WiseWeb does not prevent normal browsing.
+
+If you need unrestricted internet access while completing your initial configuration:
+
 1. Open the **Management Console**.
-2. Set the "Enable" status to **False** (Off).
-3. Configure your rules (Allow/Deny lists, Categories, etc.).
-4. Re-enable the plugin once your configuration is complete.
+2. Set the **Enable** status to **False**.
+3. Configure your policies and rules.
+4. Re-enable the extension when your configuration is ready.
 
-## 7. Hardware Recommendations
+If you want to use WVB Agent with WiseWeb:
 
-To ensure smooth performance of the AI classification engine, we recommend the following:
+1. Install WVB Agent.
+2. Install WiseWeb.
+3. Obtain and install a valid WiseWeb license.
+4. Configure the WVB Agent address as the **Approval Server** in the WiseWeb management interface.
+5. Configure your AI provider if AI classification is desired.
+6. Configure your policies.
 
-*   **If using Local AI (Ollama):**
-    *   **macOS:** Apple Silicon M4 (or newer), 16GB Memory (or higher).
-    *   **Windows:** Intel Core i5 (or newer), 16GB Memory (or higher).
-*   **If using Cloud AI (Gemini, OpenAI, Anthropic):**
-    *   Minimal hardware requirements (8GB Memory is sufficient for the Agent service itself).
+---
 
-## 8. System Dependencies
+## 10. Hardware Recommendations
 
-To provide AI classification, WVB Agent supports several AI model providers.
+Hardware requirements depend on the selected AI provider.
 
-1.  **Google Chrome:** Required by the tools of the web analysis engine.
-2.  **AI Models (Optional/Configurable):**
-    *   **Local (Ollama):** Recommended for maximum privacy. Requires [Ollama](https://ollama.com/) to be installed and sufficient hardware to run models locally.
-    *   **Cloud (Gemini, OpenAI, Anthropic):** Supported for users who prefer cloud-hosted AI APIs. Does not require Ollama or high-end local hardware.
+### Local AI with Ollama
 
+Recommended:
 
-## 9. Configuring the AI Engine
+* **macOS:** Apple Silicon M4 or newer, 16 GB memory or higher.
+* **Windows:** Intel Core i5 or newer, 16 GB memory or higher.
 
-The WVB Agent can be configured via the Management Console to use different AI model providers.
+Actual performance depends on the selected model.
 
-**Default Configuration:**
-*   **Provider:** Ollama
-*   **Model:** `qwen3.5:9b`
+### Cloud AI
 
-### Option A: Local AI (Ollama - Recommended for Privacy)
-1.  **Download Ollama:** Visit [ollama.com](https://ollama.com/) and download the installer for your OS.
-2.  **Pull the Model:** Open your terminal and run:
-    ```bash
-    ollama pull qwen3.5:9b
-    ```
-3.  **Console Config:** Set Provider to **Ollama** and Model to **qwen3.5:9b** in the console.
+When using Gemini, OpenAI, or Anthropic, the Agent itself has relatively modest hardware requirements. 8 GB of memory is generally sufficient for the Agent service.
 
-### Option B: Cloud AI (Gemini, OpenAI, Anthropic)
-1.  **Obtain API Key:** Get an API key from your chosen provider (Google, OpenAI, or Anthropic).
-2.  **Console Config:**
-    *   Set Provider to your chosen cloud AI.
-    *   Set Model to the desired model (e.g., `gemini-3.1-flash-lite` [default for Gemini], `gpt-4o-mini`, etc.).
-    *   Enter your API Key in the "API Key" field in the console.
-    *   *Note:* The API Key is securely encrypted and stored locally in your configuration file. No API Key is needed for local Ollama usage.
+---
 
+## 11. System Dependencies
 
-## 10. End User License Agreement (EULA)
+WVB Agent supports multiple configurable AI providers.
 
-By installing or using this software, you agree to be bound by the **End User License Agreement**. 
-Please read [EULA.txt](./EULA.txt) carefully before proceeding. 
+### Browser Analysis Engine
 
-**Key Points:**
-*   Intended for personal and family use only.
-*   Commercial use is strictly prohibited without a separate license.
-*   The software is provided "AS IS" without warranty.
+**Google Chrome** is required by the web analysis engine.
 
-## 11. Quick Start Basics
-...
-4.  **Manage:** Use the **WVB Console** to view logs, adjust your filtering categories, and set your **Default Action**:
-    *   **Allow**: All websites are permitted unless specifically blocked.
-    *   **Block**: All websites are denied unless specifically allowed.
-    *   **Allow & Follow**: Unknown websites are permitted, and they will be automatically sent to the WVB agent (Approval Server) for classification. Once classified, the site will be governed by your category rules.
-...
-## 12. Database Verification (Security)
+### AI Providers
 
-A database file (`urldb-1k.db`) containing data for 1,000 pre-classified URLs and category definitions is provided. To ensure the integrity and authenticity of this database, you can verify its digital signature using the included tools and the **package_public_key.pem**.
+AI classification is optional and configurable:
 
-**macOS Example:**
+* **Local AI — Ollama:** Recommended for users who want maximum privacy and local processing.
+* **Cloud AI — Gemini, OpenAI, Anthropic:** Available for users who prefer cloud-hosted AI services.
+
+When using a cloud AI provider, website classification information may be sent to that provider according to the provider's API and privacy policies.
+
+---
+
+## 12. Configuring the AI Engine
+
+The WVB Agent AI engine can be configured through the Management Console.
+
+### Default Configuration
+
+* **Provider:** Ollama
+* **Model:** `qwen3.5:9b`
+
+### Option A: Local AI — Ollama
+
+1. Install Ollama for your operating system.
+2. Pull the recommended model:
+
+```bash
+ollama pull qwen3.5:9b
+```
+
+3. In the WVB Console, set:
+
+   * Provider: **Ollama**
+   * Model: **qwen3.5:9b**
+
+Local AI is recommended when maximum privacy is desired.
+
+### Option B: Cloud AI
+
+WVB Agent can also use cloud AI providers such as Gemini, OpenAI, or Anthropic.
+
+1. Obtain an API key from your selected provider.
+2. In the WVB Console:
+
+   * Select the AI provider.
+   * Select the desired model.
+   * Enter the API key.
+3. The API key is encrypted and stored locally in the Agent configuration.
+
+No API key is required when using local Ollama models.
+
+---
+
+## 13. Quick Start Basics
+
+Once WiseWeb is installed and configured, use the WVB Console to manage policies and filtering behavior.
+
+### Default Actions
+
+* **Allow:** Websites are permitted unless specifically blocked by policy.
+
+* **Block:** Websites are blocked unless specifically allowed by policy.
+
+* **Allow & Follow:** Unknown websites are allowed immediately. The URL is sent asynchronously to the WVB Agent configured as the Approval Server for classification. Once classification is available, WiseWeb evaluates the policy again and applies the resulting decision.
+
+This allows website classification to occur without putting AI processing directly in the critical path of page loading.
+
+The **WiseWeb policy engine always makes the final access decision**.
+
+---
+
+## 14. Database Verification
+
+A database file (`urldb-1k.db`) containing 1,000 pre-classified URLs and category definitions is provided with the system.
+
+The database includes a digital signature that can be verified using the included tools and `package_public_key.pem`.
+
+### macOS
+
 ```bash
 ./scripts/verify_macos.sh urldb-1k.db package_public_key.pem
 ```
 
-**Windows Example:**
+### Windows
+
 ```powershell
 .\winscripts\verify_windows.ps1 -PackageFile urldb-1k.db -PublicKeyFile package_public_key.pem
 ```
 
 ---
-**Privacy Notice:** WVB Agent is designed for local operation. It does not transmit your browsing history to the developer or any third party.
+
+## 15. End User License Agreement
+
+By installing or using this software, you agree to be bound by the **End User License Agreement**.
+
+Please read [EULA.txt](./EULA.txt) before proceeding.
+
+### Key Points
+
+* Intended for personal and family use.
+* Commercial use is prohibited without a separate license.
+* The software is provided "AS IS" without warranty.
+
+---
+
+## Privacy
+
+WVB Agent is designed with a **local-first privacy model**.
+
+Browsing information and management data are processed and stored locally by default. WVB Agent does not transmit your browsing history to the developer.
+
+If you configure a cloud AI provider, information required for website classification may be sent to that provider. The choice of AI provider is controlled by the user.
+
+**Your browsing data remains under your control.**
