@@ -11,9 +11,9 @@ The WVB Agent is a "Smart Brain" and back-end service that runs on your computer
 
 ## 2. Agent & Browser Extension: How They Work Together
 
-The system consists of two parts that MUST be used together:
-1.  **The Agent (Backend):** A background service that performs AI analysis, manages the local database, and provides a management API.
-2. **The "Web Visiting Breaker: WiseWeb" Extension (Frontend):** A browser plugin for Chrome, Edge, or Safari that acts as the "Enforcer." It checks every website you visit against the Agent's database and applies your chosen security rules instantly.
+The system consists of two parts that can be either used independently or used together:
+1.  **The Web Visiting Breaker (WVB) Agent (Backend):** A background service that performs AI analysis, manages the local database, and provides the management APIs.
+2. **The "Web Visiting Breaker: WiseWeb" Extension (Frontend):** A browser plugin for Chrome, Edge, or Safari that acts as the "Enforcer." It checks every website you visit against the local database and applies your chosen security rules instantly.
 
 
 ## 3. WVB Console: Your Management Station
@@ -28,7 +28,7 @@ The **WVB Console** is the centralized management hub for the system. It is avai
 *   **Secure Authentication**:
     *   **Credentials**: Default `wvbadmin` / `password: wvbadmin123`.
     *   **Sessions**: Protected via `HttpOnly`, `SameSite=Strict` cookies.
-*   **IP-Based Access Control**: HTTP access restricted to 127.0.0.1; any remote access attempt is forced through HTTPS.
+*   **IP-Based Access Control**: HTTP access restricted to 127.0.0.1 or localhost; any remote access attempt is forced through HTTPS.
 
 The Console allows you to:
 *   **Monitor Activity:** View enriched browsing history from all your connected browser instances in one place.
@@ -51,10 +51,10 @@ The WVB browser extension offers two distinct scheduling modes to manage your br
 ---
 ## 5. Web Management Console & Mobile Support
 
-The Agent hosts a built-in web server for management. You can access it by opening the Agent's URL (e.g., `http://localhost:8000/wvb/console`) in your browser.
+The Agent hosts a built-in web server for management. You can access it by opening the Agent's URL (e.g., `http://localhost:8051/wvb/console` or https://<service ip>:8443/wvb/console when SSL is enabled) in your browser.
 
 ### Accessing from Mobile (iPhone/Android)
-To manage your system from a mobile phone, visit the IP address of your computer on your local network (e.g., `http://192.168.1.10:8000/wvb/console`).
+To manage your system from a mobile phone, visit the IP address of your computer on your local network (e.g., `https://192.168.1.10:8443/wvb/console`).
 
 **Important Security Note for Mobile Decryption:**
 Modern mobile browsers require a **Secure Context** to enable the Web Crypto API used for local log decryption. 
@@ -83,7 +83,7 @@ The software package for macOS (.pkg) and Windows (.msi) can be found in the Rel
 
 ## 6. First-Time Installation Note
 
-**Important:** Upon installation, the plugin is **enabled by default** and configured to **block unknown websites**. As a result, you may notice that all currently open browser pages are blocked immediately after installation.
+Upon installation, the plugin is **enabled by default** and the default action is configured to **Allow**. As a result, websites are allowed by default after initial installation.
 
 If you need internet access to finish your initial setup and policy configurations:
 1. Open the **Management Console**.
@@ -151,7 +151,7 @@ Please read [EULA.txt](./EULA.txt) carefully before proceeding.
 4.  **Manage:** Use the **WVB Console** to view logs, adjust your filtering categories, and set your **Default Action**:
     *   **Allow**: All websites are permitted unless specifically blocked.
     *   **Block**: All websites are denied unless specifically allowed.
-    *   **Allow & Follow**: Unknown websites are permitted, and they will be automatically sent to the Approval Server for classification. Once classified, the site will be governed by your category rules.
+    *   **Allow & Follow**: Unknown websites are permitted, and they will be automatically sent to the WVB agent (Approval Server) for classification. Once classified, the site will be governed by your category rules.
 ...
 ## 12. Database Verification (Security)
 
