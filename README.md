@@ -357,4 +357,27 @@ Browsing information and management data are processed and stored locally by def
 
 If you configure a cloud AI provider, information required for website classification may be sent to that provider. The choice of AI provider is controlled by the user.
 
-**Your browsing data remains under your control.**
+
+---
+
+## 16. Automated Email PDF Insight Reports
+
+WVB Agent can now generate and send automated PDF insight reports.
+
+### Key Features:
+- **Scheduled Reports:** Configure hourly delivery of detailed activity reports.
+- **Manual Trigger:** Generate reports instantly via the Management Console.
+- **Visual Reports:** PDF reports include pie charts, bar charts, and tabular data (Domain, Category, Age Group, Risk Score, Duration).
+- **Optimized Dispatch:** Multiple plugin reports are bundled into a single email for efficiency.
+- **Automatic Cleanup:** Generated reports are securely deleted after dispatch.
+
+Configure your notification settings in the Management Console under the "Email Notification Settings" section.
+
+---
+
+## 17. Recent Features & Enhancements
+
+* **Generic License Support:** Extensions can now obtain a temporary generic license for streamlined activation.
+* **Proactive License Cleanup:** Implemented an 8-hour Time-To-Live (TTL) for cached licenses with an automatic, thread-safe background cleanup task that proactively reclaims slots.
+* **Enhanced Autopilot Responsiveness:** Configuration changes for the Approval Server now take effect immediately, eliminating delays in the browser extension's status indicator.
+
